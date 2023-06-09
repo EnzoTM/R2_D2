@@ -1,6 +1,6 @@
-path: /home/enzo/Desktop/R2_D2/object_detector/data/door
+path: /home/enzo/Desktop/R2_D2/object_detector/data
 train: train/images
-val: valid/images
+val: train/images
 
 #classes
 names:
