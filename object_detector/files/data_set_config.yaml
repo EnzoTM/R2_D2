@@ -1,0 +1,7 @@
+path: /home/enzo/Desktop/R2_D2/object_detector/data/door
+train: train/images
+val: valid/images
+
+#classes
+names:
+  0: porta
