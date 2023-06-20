@@ -1,6 +1,6 @@
 import os
 
-path = "/home/enzo/Desktop/data/reformat.v1-chair-416.yolov8"
+path = "/home/enzo/Desktop/data/Chairs.v2i.yolov8"
 
 files = ["train", "test", "valid"]
 
