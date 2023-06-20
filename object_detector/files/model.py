@@ -16,7 +16,7 @@ class AI:
         
         if path != None:
             self.model_path = os.path.join("/home/enzo/Desktop/R2_D2/object_detector", "files", "runs", "detect", path, "weights", "last.pt") #pegar o path do modelo ja treinado
-            self.model = YOLO(self.model_path)#carregar o modelo ja treinado
+            self.model = YOLO("yolov8n.pt")#carregar o modelo ja treinado
 
         #se traning for verdadeiro, treinar o modelo
         if training:
