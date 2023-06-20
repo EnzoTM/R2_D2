@@ -1,5 +1,5 @@
 from model import AI
 
-modelo = AI(path="train8")
+modelo = AI(training=True)
 
 modelo.prediction(0)

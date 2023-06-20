@@ -1,10 +1,10 @@
 import os
 
-path = "/home/enzo/Desktop/data/Chairs.v2i.yolov8"
+path = "/home/enzo/Desktop/data/Windows.v2i.yolov8"
 
 files = ["train", "test", "valid"]
 
-new_class = "1"
+new_class = "2"
 
 for file in files:
     full_path = os.path.join(path, file, "labels")       
