@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['chair']
+
+roboflow:
+  workspace: thammasat-university-lg6pc
+  project: object_detection-wehq6
+  version: 4
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/thammasat-university-lg6pc/object_detection-wehq6/dataset/4

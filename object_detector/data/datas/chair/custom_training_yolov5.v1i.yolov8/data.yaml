@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['chair']
+
+roboflow:
+  workspace: inileyolov5
+  project: custom_training_yolov5
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/inileyolov5/custom_training_yolov5/dataset/1

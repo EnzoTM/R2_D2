@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 3
+names: ['close', 'open', 'semi-open']
+
+roboflow:
+  workspace: project-p1vlb
+  project: door-detection-xxakd
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/project-p1vlb/door-detection-xxakd/dataset/1

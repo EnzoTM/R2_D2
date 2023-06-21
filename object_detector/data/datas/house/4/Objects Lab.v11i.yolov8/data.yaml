@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 13
+names: ['apple', 'bowl', 'corn flakes', 'fork', 'guarana', 'kiwi', 'knife fork', 'knife', 'orange', 'plate', 'pringles', 'sponge', 'tonic']
+
+roboflow:
+  workspace: butiabots2022
+  project: objects-lab-ejb0j
+  version: 11
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/butiabots2022/objects-lab-ejb0j/dataset/11

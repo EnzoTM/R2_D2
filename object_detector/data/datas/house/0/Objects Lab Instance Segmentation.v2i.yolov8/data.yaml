@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 15
+names: ['apple', 'bowl', 'cleaner', 'corn flakes', 'fork', 'green apple', 'guarana', 'kiwi', 'knife', 'orange', 'plate', 'pringles', 'sponge', 'spoon', 'tonic']
+
+roboflow:
+  workspace: butiabots-magic-scissors
+  project: objects-lab-instance-segmentation
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/butiabots-magic-scissors/objects-lab-instance-segmentation/dataset/2

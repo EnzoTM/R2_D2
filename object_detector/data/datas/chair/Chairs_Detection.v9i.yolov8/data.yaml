@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['0']
+
+roboflow:
+  workspace: uottawa-wwr3r
+  project: chairs_detection
+  version: 9
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/uottawa-wwr3r/chairs_detection/dataset/9

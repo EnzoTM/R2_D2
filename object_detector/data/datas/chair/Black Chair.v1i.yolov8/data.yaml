@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['black-chair']
+
+roboflow:
+  workspace: senior-project-final-datasets
+  project: black-chair-16xxf
+  version: 1
+  license: Public Domain
+  url: https://universe.roboflow.com/senior-project-final-datasets/black-chair-16xxf/dataset/1

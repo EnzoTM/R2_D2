@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 2
+names: ['okamura-contessa', 'takumikan-chair']
+
+roboflow:
+  workspace: test-khffh
+  project: chair-23e4z
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/test-khffh/chair-23e4z/dataset/1

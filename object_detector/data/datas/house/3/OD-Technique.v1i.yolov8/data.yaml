@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 42
+names: ['AlcoholBottle', 'Apple', 'Bag', 'Banana', 'BeerCan', 'Bowl', 'Carrot', 'ChocolateMilk', 'ChocolatePowder', 'Cleaner', 'Cloth', 'CoconutMilk', 'CoconutWater', 'Coke', 'Cookies', 'CornFlakes', 'Cracker', 'EnglishSauce', 'Fork', 'Gelatine', 'Guarana', 'IceTea', 'Ketchup', 'Kiwi', 'Knife', 'Mayonnaise', 'Mug', 'Mustard', 'Napkin', 'Orange', 'Plate', 'Popcorn', 'Pringles', 'Soap', 'SodaCan', 'Sponge', 'TomatoSauce', 'Tonic', 'Toothpaste', 'TunaCan', 'Water', 'Yeast']
+
+roboflow:
+  workspace: rohit-kumar-4n6fm
+  project: od-technique
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/rohit-kumar-4n6fm/od-technique/dataset/1

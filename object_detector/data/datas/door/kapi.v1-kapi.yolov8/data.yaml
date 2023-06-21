@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['door']
+
+roboflow:
+  workspace: rasathane
+  project: kapi
+  version: 1
+  license: Public Domain
+  url: https://universe.roboflow.com/rasathane/kapi/dataset/1

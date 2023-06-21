@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['door']
+
+roboflow:
+  workspace: nyla
+  project: door-ex6s8
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/nyla/door-ex6s8/dataset/1
