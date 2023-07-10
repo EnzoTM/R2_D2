@@ -14,7 +14,7 @@ import sys
 
 import string
 
-class ai:
+class language:
     def __init__(self, arquivo, file_words, file_classes, file_model, training=False):
         #trinamento
         self.training = training

@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import os
 import cv2
 
-class AI:
+class vision:
     #por padrao, training vai ser falso
     def __init__(self, path=None, config_folder="data_set_config.yaml", training=False, model_type="yolov8n", epochs=100, pt=False):
         if (path == None) and not(training) and not(pt):
@@ -19,7 +19,7 @@ class AI:
             self.model = YOLO(self.model_path)#carregar o modelo ja treinado
         
         if pt: #carregar o mdeolo pretreinado baseado no tipo do medelo
-            path = os.path.join("/home/enzo/Desktop/R2_D2/object_detector", self.model_type + ".pt")
+            path = os.path.join("/home/enzo/Desktop/R2_D2/object_detector/model",  self.model_type + ".pt")
             self.model = YOLO(path)
 
 
