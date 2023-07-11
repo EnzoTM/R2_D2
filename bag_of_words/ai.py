@@ -61,7 +61,7 @@ class language:
 
                 #adicionar as palavras na lista words
                 for word in word_list:
-                    self.words.apped(word)
+                    self.words.append(word)
 
                 #adicionar a lista de palavras + a classe na lista de instanciaos
                 self.instancias.append((word_list, padrao["classe"]))
