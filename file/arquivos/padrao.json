@@ -1,0 +1,67 @@
+{
+  "padroes": [
+      {
+          "classe": "pessoa",
+          "input": ["va ate a pessoa", "essa pessoa eh muito chata", "o pedro eh essa pessoa", "as pessoas dominam o mundo", "fuck chatgpt, a gente eh pessoa", 
+          "como eu adoro uma pessoa", "va ate aquela pessoa", "eu gosto das poesias do fernando pessoa"],
+          "index": 0
+      },
+
+      {
+          "classe": "carro",
+          "input": ["eu vi o carro na rua", "este carro eh muito bonito", "nossa, que carro caro", "jesus amado, carro", "o carro vai me atropelar porra",
+           "olha o carro do acucar", "o carro vem e o carro vai"],
+          "index": 2
+      },
+
+      {
+        "classe": "gato",
+        "input": ["eu vi o gato na rua", "o gato era preto", "corra ate o gato", "caraca, olha o gato", "o gato sempre cai de pe", "nossa, achei que o gato era preto, mas era marrom",
+        "este gato tinha um intelecto muito alto", "gatinho gatao, vem comer meu pao"],
+        "index": 15
+      },
+
+      {
+        "classe": "cachorro",
+        "input": ["o cachorro correu muito", "que cachorro lindo", "o cachorro latiu bastante", "o cachorro tambem sentia falta do ayrton", "o simoes tinha um cachorro", 
+        "sera que o cachorro sobreviveu"],
+        "index": 16
+      },
+
+      {
+        "classe": "mochila",
+        "input": ["eu comprei uma mochila nova", "que mochila linda", "caraca, essa mochila eh preta", "mochila mochila mochila", "a dora aventureira tem uma mochila",
+        "o ayrton ta precisando comprar uma mochila nova"],
+        "index": 24
+      },
+
+      {
+        "classe": "guarda-chuva",
+        "input": ["esta chovendo vou levar meu guarda-chuva", "oh nao meu guarda-chuva quebrou", "esqueci meu guarda-chuva em casa", "guarda-chuva serve para parar a chuva",
+        "guarda-chuva guarda-chuva guarda-chuva", "eu comprei um guarda-chuva novo", "o pedro tem um guarda-chuva"],
+        "index": 35
+      },
+
+      {
+        "classe": "bolsa",
+        "input": ["minha bolsa esta rasgada", "esqueci minha bolsa em casa", "minha bolsa eh de crocodilo", "guardei um taser na minha bolsa", "minha bolsa esta muito pesada",
+        "eu levo a minha bolsa para a escola", "a sua bolsa eh muito bonita"],
+        "index": 26
+      },
+      
+      {
+        "classe": "bola",
+        "input": ["tem uma bola de futebol na quadra", "os alunos estouraram a bola de futebol", "a bola de volei esta rasgada", "a bola de basquete eh pesada",
+    "ja tentou jogar de bola murcha?", "sergiao isolou a bola", "o goleiro defendeu a bola"],
+        "index": 32
+      },
+
+      {
+        "classe": "garrafa",
+        "input": ["a agua da minha garrafa acabou", "essa garrafa deixa a agua gelada", "guardei cafe na minha garrafa", "minha garrafa esta vazando",
+        "derrubei a minha garrafa no chao", "trouxe minha garrafa para o treino", "esqueci minha garrafa em casa"],
+        "index": 39
+      }
+
+  ]
+}
