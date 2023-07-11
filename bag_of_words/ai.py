@@ -109,52 +109,38 @@ class language:
 
     def load_training(self):
         """
-        cerregar as palavras e as classes como binário para training
+        transformar os inputs e os outputs para binário
+        retorna duas listas, em np.array, uma do input e outra do output
         """
-        training = []
+        binary_input = [] #lista que irá conter todos os inputs em binário
+        binary_output = [] #lista que irá conter todos os outputs em binário
 
-        #criar uma lista de output vazia, onde cada casa terá o valor 0, e tera o mesmo número de instancias que tem de classes
-        model_binary_output = [0] * len(self.words)
-
+        #para cad instancia (classe com suas palavras)
         for instancia in self.instancias:
-            #criar a lista que guardará qual é a nossa palavra
-            binary_word = []
+            b_output = [0] * len(self.classes) #criar o array de binário do output
+            b_input = [] #criar o array em binário do input
 
-            #lista que guardara quais são as palavras deste instancia
-            word_patterns = instancia[0]
+            #pegar as palavras da classe
+            word_from_class = instancia[0]
 
+            #para cada palavra de todas as palavras
             for word in self.words:
-                #se esta palavra fizer parte da classe atual, adicionar 1 para o output
-                if word in word_patterns:
-                    binary_word.append(1)
+                if word in word_from_class:
+                    b_input.append(1) #se esta palavra estiver presente nas palavras da classe
                 else:
-                    binary_word.append(0)
+                    b_input.append(0) #se esta palavra nao estiver presente nas palavras da classe
             
-            #copiar a lista de output vazia para uma nova lista
-            binary_output = list(model_binary_output) 
-            
-            #pegar o index da classe atual, e coloca-lo como 1, para sabermos qual classe é a atual (o resto vai ser 0)
-            binary_output[self.classes.index(instancia[1])] = 1  
-            #adicionar a binary_word (qual é a lista de palavras) e output_row (qual é a classe dessas palavras)
-            training.append([binary_word, binary_output])
-        
-        print(training)
+            #adicionar o array das palavras para a lista
+            binary_input.append(b_input)
 
-        for coiso in training:
-            print(len(coiso[0]))
+            #b_output é uma lista com o tamanho sendo o número de classes. Logo, no index desta classe vamos seta-la como 1 para sabermos de qual classe estamos falando
+            b_output[self.classes.index(instancia[1])] = 1
 
-        #transformar training em um nump array
-        training = np.array(training)
+            #adicionar o b_output na lista de outputs
+            binary_output.append(b_output)
 
-        #retorna a listad e input e output
-        input_return = []
-        output_return = []
-
-        for i in range(0, len(training)):
-            input_return.append(training[i][0])
-            output_return.append(training[i][1])
-
-        return input_return, output_return
+        #retornar eles como np.array
+        return np.array(binary_input), np.array(binary_input)
     
 
     def create_model(self, inputs, outputs):
