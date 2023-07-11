@@ -8,7 +8,7 @@ from nltk.stem import WordNetLemmatizer #reduz palavras diferentes para uma só
 from tensorflow import keras
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout
-from keras.optimizers import SGD
+from keras.optimizers.legacy import SGD
 from keras.models import load_model
 import sys
 
@@ -46,7 +46,6 @@ class language:
         self.padroes = json.loads(open(self.arquivo).read())
 
         self.lemmatizer = WordNetLemmatizer()
-
     
     def load(self):
         """
@@ -63,16 +62,19 @@ class language:
                 for word in word_list:
                     self.words.append(word)
 
+                #print(padrao["numero"])
+
                 #adicionar a lista de palavras + a classe na lista de instanciaos
-                self.instancias.append((word_list, padrao["classe"]))
+                self.instancias.append( (word_list, padrao["classe"]))
 
                 #se esta categoria ainda nao foi adicionada em calsses, adiciona-la
                 if padrao["classe"] not in self.classes:
                     self.classes.append(padrao["classe"])
 
+        '''
         #lemmatizar as palavras
         for i in range(0, len(word_list)):
-            word_list[i] = self.lemmatizer.lemmatize(word_list[i])
+            word_list[i] = self.lemmatizer.lemmatize(word_list[i])'''
         
         #ver todas as palavras que teremos de remover, e remove-las
         words_to_remove = []
@@ -112,7 +114,7 @@ class language:
         training = []
 
         #criar uma lista de output vazia, onde cada casa terá o valor 0, e tera o mesmo número de instancias que tem de classes
-        model_binary_output = [0] * len(self.classes)
+        model_binary_output = [0] * len(self.words)
 
         for instancia in self.instancias:
             #criar a lista que guardará qual é a nossa palavra
@@ -135,6 +137,11 @@ class language:
             binary_output[self.classes.index(instancia[1])] = 1  
             #adicionar a binary_word (qual é a lista de palavras) e output_row (qual é a classe dessas palavras)
             training.append([binary_word, binary_output])
+        
+        print(training)
+
+        for coiso in training:
+            print(len(coiso[0]))
 
         #transformar training em um nump array
         training = np.array(training)
