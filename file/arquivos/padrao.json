@@ -1,67 +1,227 @@
 {
-  "padroes": [
-      {
-          "classe": "pessoa",
-          "input": ["va ate a pessoa", "essa pessoa eh muito chata", "o pedro eh essa pessoa", "as pessoas dominam o mundo", "fuck chatgpt, a gente eh pessoa", 
-          "como eu adoro uma pessoa", "va ate aquela pessoa", "eu gosto das poesias do fernando pessoa"],
-          "index": 0
-      },
+    "padroes": [
+        {
+            "classe": "pessoa",
+            "input": ["va ate a pessoa", "essa pessoa eh muito chata", "o pedro eh essa pessoa", "as pessoas dominam o mundo", "fuck chatgpt, a gente eh pessoa", 
+            "como eu adoro uma pessoa", "va ate aquela pessoa", "eu gosto das poesias do fernando pessoa"],
+            "index": 0
+        },
+  
+        {
+            "classe": "carro",
+            "input": ["eu vi o carro na rua", "este carro eh muito bonito", "nossa, que carro caro", "jesus amado, carro", "o carro vai me atropelar porra",
+             "olha o carro do acucar", "o carro vem e o carro vai"],
+            "index": 2
+        },
+  
+        {
+          "classe": "gato",
+          "input": ["eu vi o gato na rua", "o gato era preto", "corra ate o gato", "caraca, olha o gato", "o gato sempre cai de pe", "nossa, achei que o gato era preto, mas era marrom",
+          "este gato tinha um intelecto muito alto", "gatinho gatao, vem comer meu pao"],
+          "index": 15
+        },
+  
+        {
+          "classe": "cachorro",
+          "input": ["o cachorro correu muito", "que cachorro lindo", "o cachorro latiu bastante", "o cachorro tambem sentia falta do ayrton", "o simoes tinha um cachorro", 
+          "sera que o cachorro sobreviveu"],
+          "index": 16
+        },
+  
+        {
+          "classe": "mochila",
+          "input": ["eu comprei uma mochila nova", "que mochila linda", "caraca, essa mochila eh preta", "mochila mochila mochila", "a dora aventureira tem uma mochila",
+          "o ayrton ta precisando comprar uma mochila nova"],
+          "index": 24
+        },
+  
+        {
+          "classe": "guarda-chuva",
+          "input": ["esta chovendo vou levar meu guarda-chuva", "oh nao meu guarda-chuva quebrou", "esqueci meu guarda-chuva em casa", "guarda-chuva serve para parar a chuva",
+          "guarda-chuva guarda-chuva guarda-chuva", "eu comprei um guarda-chuva novo", "o pedro tem um guarda-chuva"],
+          "index": 35
+        },
+  
+        {
+          "classe": "bolsa",
+          "input": ["minha bolsa esta rasgada", "esqueci minha bolsa em casa", "minha bolsa eh de crocodilo", "guardei um taser na minha bolsa", "minha bolsa esta muito pesada",
+          "eu levo a minha bolsa para a escola", "a sua bolsa eh muito bonita"],
+          "index": 26
+        },
+        
+        {
+          "classe": "bola",
+          "input": ["tem uma bola de futebol na quadra", "os alunos estouraram a bola de futebol", "a bola de volei esta rasgada", "a bola de basquete eh pesada",
+      "ja tentou jogar de bola murcha?", "sergiao isolou a bola", "o goleiro defendeu a bola"],
+          "index": 32
+        },
+  
+        {
+          "classe": "garrafa",
+          "input": ["a agua da minha garrafa acabou", "essa garrafa deixa a agua gelada", "guardei cafe na minha garrafa", "minha garrafa esta vazando",
+          "derrubei a minha garrafa no chao", "trouxe minha garrafa para o treino", "esqueci minha garrafa em casa"],
+          "index": 39
+        },
 
-      {
-          "classe": "carro",
-          "input": ["eu vi o carro na rua", "este carro eh muito bonito", "nossa, que carro caro", "jesus amado, carro", "o carro vai me atropelar porra",
-           "olha o carro do acucar", "o carro vem e o carro vai"],
-          "index": 2
-      },
+        {
+            "classe": "garfo",
+            "input": ["estava comendo e meu garfo caiu", "eu uso o garfo para comer", "o garfo esta dentro da gaveta", "me furaram com um garfo",
+            "coma com garfo e faca", "o garfo esta limpo", "o garfo do restaurante eh muito bonito"],
+            "index": 42
+        },
 
-      {
-        "classe": "gato",
-        "input": ["eu vi o gato na rua", "o gato era preto", "corra ate o gato", "caraca, olha o gato", "o gato sempre cai de pe", "nossa, achei que o gato era preto, mas era marrom",
-        "este gato tinha um intelecto muito alto", "gatinho gatao, vem comer meu pao"],
-        "index": 15
-      },
+        {
+            "classe": "faca",
+            "input": ["a minha faca caiu no chao", "eu uso faca para comer", "cortei o dedo com a faca acidentalmente", "me furaram com a faca",
+            "coma com garfo e faca", "a faca eh um objeto cortante", "a faca eh muito bonita"],
+            "index": 43
+        },
+        
+        {
+            "classe": "banana",
+            "input": ["o macaco gosta de banana", "banana eh uma fruta", "descasca a banana", "banana eh a fruta mais pratica", "comi uma banana de sobremesa",
+            "essa banana ainda esta verde", "a banana ja esta estragada", "o cacho de bananas esta muito alto"],
+            "index": 46
+        },
 
-      {
-        "classe": "cachorro",
-        "input": ["o cachorro correu muito", "que cachorro lindo", "o cachorro latiu bastante", "o cachorro tambem sentia falta do ayrton", "o simoes tinha um cachorro", 
-        "sera que o cachorro sobreviveu"],
-        "index": 16
-      },
+        {
+            "classe": "maçã",
+            "input": ["dei ao meu professor uma maca", "essa maca esta muito azeda", "hoje a sobremesa eh maca", "uma maca caiu na minha cabeca", 
+            "eu gosto de maca verde", "plantei um pe de maca", "maca eh a fruta mais famosa do mundo"],
+            "index": 47
+        },
 
-      {
-        "classe": "mochila",
-        "input": ["eu comprei uma mochila nova", "que mochila linda", "caraca, essa mochila eh preta", "mochila mochila mochila", "a dora aventureira tem uma mochila",
-        "o ayrton ta precisando comprar uma mochila nova"],
-        "index": 24
-      },
+        {
+            "classe": "sanduíche",
+            "input": ["comi um sanduiche de presunto", "minha mae me fez um sanduiche", "existem varios tipos de sanduiche", "nao gosto de alface no meu sanduiche",
+            "tomate fica gostoso dentro do sanduiche", "hamburguer nao eh sanduiche", "joao gosta de sanduiche frio"],
+            "index": 48
+        },
 
-      {
-        "classe": "guarda-chuva",
-        "input": ["esta chovendo vou levar meu guarda-chuva", "oh nao meu guarda-chuva quebrou", "esqueci meu guarda-chuva em casa", "guarda-chuva serve para parar a chuva",
-        "guarda-chuva guarda-chuva guarda-chuva", "eu comprei um guarda-chuva novo", "o pedro tem um guarda-chuva"],
-        "index": 35
-      },
+        {
+            "classe": "cadeira",
+            "input": ["essa cadeira eh muito desconfortavel", "eu amo essa cadeira", "essa cadeira eh muito bem acolchoada", "nao acredito que sentei nessa cadeira",
+            "existem varias cadeiras diferentes", "preciso trocar o banco dessa cadeira"],
+            "index": 56
+        },
 
-      {
-        "classe": "bolsa",
-        "input": ["minha bolsa esta rasgada", "esqueci minha bolsa em casa", "minha bolsa eh de crocodilo", "guardei um taser na minha bolsa", "minha bolsa esta muito pesada",
-        "eu levo a minha bolsa para a escola", "a sua bolsa eh muito bonita"],
-        "index": 26
-      },
-      
-      {
-        "classe": "bola",
-        "input": ["tem uma bola de futebol na quadra", "os alunos estouraram a bola de futebol", "a bola de volei esta rasgada", "a bola de basquete eh pesada",
-    "ja tentou jogar de bola murcha?", "sergiao isolou a bola", "o goleiro defendeu a bola"],
-        "index": 32
-      },
+        {
+            "classe": "sofá",
+            "input": ["o sofa eh muito pequeno", "eu tenho um sofa no meu quarto", "esse sofa afunda", "o sofa machuca meu bumbum", "esse sofa parece uma cama",
+            "poderia ate dormir nesse sofa", "tem varias moedas escondidas nesse sofa"],
+            "index": 57
+        },
 
-      {
-        "classe": "garrafa",
-        "input": ["a agua da minha garrafa acabou", "essa garrafa deixa a agua gelada", "guardei cafe na minha garrafa", "minha garrafa esta vazando",
-        "derrubei a minha garrafa no chao", "trouxe minha garrafa para o treino", "esqueci minha garrafa em casa"],
-        "index": 39
-      }
+        {
+            "classe": "planta em vaso",
+            "input": ["que linda planta em vaso", "gosto de planta em vaso", "planta em vaso eh muito bonita", "tenho uma planta em vaso", "sem querer quebrei a planta em vaso",
+        "estou vendo uma planta em vaso", "quero comprar uma planta em vaso", "minha tia ama planta em vaso"],
+            "index": 58
+        },
 
-  ]
-}
+        {
+            "classe": "cama",
+            "input": ["dormi na cama", "minha cama eh macia", "gosto da minha cama", "adoro dormir na cama", "uma cama confortavel", "amo a cama dele", "talvez eu va pra cama",
+        "um dia inteiro na cama", "fiquei espantado ao olhar minha cama baguncada", "a cama estava arrumada"],
+            "index": 59
+        },
+
+        {
+            "classe": "mesa de jantar",
+            "input": ["a mesa de jantar era muito grande", "meu sonho eh uma mesa de jantar de vidro", "adoro minha mesa de jantar", "va ate a mesa de jantar", 
+            "a janta sera servida na mesa de jantar", "eu nunca vi uma mesa de jantar tao linda"],
+            "index": 60
+        },
+
+        {
+            "classe": "televisão",
+        "input": ["estou assistindo televisao", "gosto de ver televisao", "minha televisao eh enorme", "nunca vi uma televisao tao colorida", "esta televisao e espetacular",
+    "a televisao dele nunca perde a graca", "olhe minha nova televisao", "uma televisao custa muito caro"],
+            "index": 62
+        },
+
+        {
+            "classe": "laptop",
+            "input": ["meu laptop quebrou", "meu laptop tem uma tela incrivel", "o laptop dele eh melhor que meu computador", "gosto de usar laptop", "queria um laptop vintage",
+        "o outro laptop eh muito fino", "que laptop incrivel", "quanto custa esse laptop"],
+            "index": 63
+        },
+
+        {
+            "classe": "mouse",
+        "input": ["me empresta esse mouse", "gosto do meu mouse", "esse mouse eh muito preciso", "la em casa tem um mouse", "talvez seja melhor usar um mouse", "esse eh o meu mouse", 
+    "queria aquele mouse", "nossa que mouse legal", "esse mouse eh enorme", "pega o mouse pra usar no seu computador"],
+            "index": 64
+        },
+
+        {
+            "classe": "controle remoto",
+            "input": ["o controle remoto esta em cima da bancada", "talvez seja esse o controle remoto que voce procura", "o controle remoto tem muitos botoes", "me passa o controle remoto", 
+        "o controle remoto quebrou", "esse controle remoto parou de funcionar faz tempo", "ele funciona por controle remoto"],
+            "index": 65
+        },
+
+        {
+            "classe": "teclado",
+            "input": ["sempre quis esse teclado", "esse teclado parece bom", "qual o modelo do seu teclado", "esse teclado eh muito bonito", "que rapido voce tecla no teclado", 
+            "quanto custou esse teclado?", "esse teclado gamer eh demais", "que teclado colorido eh esse?"],
+            "index": 66
+        },
+
+        {
+            "classe": "celular",
+            "input": ["devolve meu celular", "gostei desse celular", "queria tanto aquele celular", "o ultimo modelo de celular eh muito caro", "esse celular eh de qual marca?", 
+        "qual celular voce comprou?", "pegue o celular em cima da cama", "a camera desse celular eh muito boa"],
+            "index": 67
+        },
+
+        {
+            "classe": "micro-ondas",
+            "input": ["o micro-ondas fica na cozinha", "esse micro-ondas eh bem potente", "olhe, o micro-ondas parece estar ruim", "o micro-ondas nao quer funcionar", "esse micro-ondas eh bem grande", 
+        "voce por acaso tem um micro-ondas?", "va ate o micro-ondas e esquente esse prato", "o micro-ondas esquentou a comida"],
+            "index": 68
+        },
+
+        {
+            "classe": "livro",
+            "input": ["li esse livro ano passado", "o livro eh interessante", "talvez eu compre esse livro na promocao", "o livro esta na bancada", "meu sonho eh ler aquele livro", 
+        "escrevi esse livro quando era mais jovem", "talvez esse livro nao seja tao legal", "gostei da historia deste livro"],
+            "index": 73
+        },
+
+        {
+            "classe": "relógio",
+            "input": ["chequei no relogio e sao duas horas da tarde", "esse relogio esta atrasado", "voce pode me falar o horario que esta no relogio?", "o meu relogio custou bem caro", 
+        "queria comprar aquele relogio", "esse relogio eh rolex", "o relogio quebrou depois de cair da parede"],
+            "index": 74
+        },
+
+        {
+            "classe": "vaso",
+            "input": ["quebrei o vaso sem querer", "esse vaso ornamentou muito bem com essa planta", "queria colocar um vaso com flores ao lado do sofa", "talvez esse vaso nao combine com essa parede", 
+        "nossa, que lindo vaso voce tem", "realmente, esse vaso eh muito bonito", "tire o vaso de la antes que ele quebre"],
+            "index": 75
+        },
+
+        {
+            "classe": "tesoura",
+            "input": ["eu precisava de uma tesoura", "sem a tesoura, nao consigo cortar", "essa tesoura esta bem afiada", "nossa que tesoura grande", "empresta essa tesoura para mim", 
+        "talvez essa tesoura esteja cega", "uma tesoura resolveria isso", "o cabelo foi cortado apenas com tesoura"],
+            "index": 76
+        },
+
+        {
+            "classe": "secador de cabelo",
+            "input": ["o meu secador de cabelo queimou", "meu cabelo estava molhado, sequei com o secador de cabelo", "o secador de cabelo caiu no chao",
+        "o meu secador de cabelo esta esquentando muito", "esse secador de cabelo eh branco", "esse secador de cabelo eh muito bom"],
+            "index": 78
+        },
+
+        {
+            "classe": "escova de dentes",
+            "input": ["acordei e usei minha escova de dentes para escovar os dentes", "a minha escova de dentes eh rosa", "a minha escova de dentes caiu no chao",
+        "preciso comprar uma nova escova de dentes", "eu comprei uma escova de dentes nova", "esqueci minha escova de dentes em casa", "a escova que comprei eh ruim"],
+            "index": 79
+        }
+    ]
+  }
