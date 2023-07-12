@@ -182,7 +182,7 @@ class language:
         
         trained_model = model.fit(np.array(inputs), np.array(outputs), epochs=200, batch_size=5) #treinar o modelo
 
-        model.save("arquivos/models/model.model", trained_model)
+        model.save(self.file_model, trained_model)
 
         return model, trained_model
 

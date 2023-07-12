@@ -1,11 +1,10 @@
 import speech_recognition as sr
 
-"""
-é o código para saber os microfones disponíveis
+
+#é o código para saber os microfones disponíveis
 for index, name in enumerate(sr.Microphone.list_microphone_names()):
     print("Microphone with name \"{1}\" found for `Microphone(device_index={0})`".format(index, name))
 
-"""
 
 class voice_recognition:
     def __init__(self) -> None:
@@ -20,7 +19,7 @@ class voice_recognition:
         
         try:
             #devide_index=1 é o microfone que está sendo usado para receber o áudio
-            with sr.Microphone(device_index=1) as source:
+            with sr.Microphone(device_index=0) as source:
                 print("Diga algo:")
                 #para ajustar o áudio com o ambinete, coloquei duração de 0.2, pois foi a melhor q eu achei
                 microfone.adjust_for_ambient_noise(source, duration=0.2)
@@ -36,4 +35,8 @@ class voice_recognition:
 
         except sr.UnknownValueError:
             #retornar False, pois deu algum erro
-            return False
+            self.vr()
+
+t = voice_recognition()
+t.vr()
+print(t.audio)

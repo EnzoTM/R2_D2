@@ -1,7 +1,10 @@
+from classes.language import language
+import os
 
-from classes.computer_vision import vision
+ai = language(training=True, arquivo=os.path.join(os.getcwd(), "file", "arquivos", "padrao.json"), file_words=os.path.join(os.getcwd(), "file", "arquivos", "words.txt"), file_classes=os.path.join(os.getcwd(), "file", "arquivos", "classes.txt"), file_model=os.path.join(os.getcwd(), "file", "arquivos", "models", "model"))
 
-v = vision(pt=True, model_type="yolov8n")
+ai.load()
 
-while True:
-    v.prediction(1)
+input_, output = ai.load_training()
+
+ai.create_model(input_, output)

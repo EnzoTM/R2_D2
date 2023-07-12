@@ -1,6 +1,8 @@
 from ultralytics import YOLO
 import os
 import cv2
+import logging
+
 
 class vision:
     #por padrao, training vai ser falso
@@ -37,7 +39,7 @@ class vision:
         model.train(data=self.data_set_configuration_path, epochs=self.epochs) #treinar o modelo
 
     def prediction(self, camera_input):
-        camera = cv2.VideoCapture("DroidCam Source 3", cv2.CAP_DSHOW)
+        camera = cv2.VideoCapture(camera_input)
         #self.model.info()
         #camera = cv2.VideoCapture(camera_input) #receber o que a camera está gravando
         _, frame = camera.read() #pegar o frame atual da camera
@@ -45,6 +47,8 @@ class vision:
         predicted_objects = [] #lista de objetos predizidos
 
         results = self.model.predict(frame, show=True, conf=0.6)[0]
+
+        logging.getLogger('yolov8').setLevel(logging.CRITICAL)
 
         for result in results:
             #formatar para extrair somente as informações relevantes do resultado
@@ -61,7 +65,7 @@ class vision:
                 'y1': y1,
                 'y2': y2,
                 'acuracia': box_coordenates[4],
-                'xc': (x1 + x2) / 2,
+                'xc': int((x1 + x2) / 2),
                 'yc': (y1 + y2) / 2,
                 'classe': box_coordenates[5]
             }

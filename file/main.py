@@ -4,8 +4,10 @@ from classes.voice_recognition import voice_recognition
 
 import time
 
+import os
+
 CV = vision(pt=True, model_type="yolov8n")
-LANG = language(arquivo="arquivos/classes_padrao.json", file_words="arquivos/words.txt", file_classes="arquivos/classes.txt", file_model="arquivos/models/model.model")
+LANG = language(arquivo=os.path.join(os.getcwd(), "file", "arquivos", "padrao.json"), file_words=os.path.join(os.getcwd(), "file", "arquivos", "words.txt"), file_classes=os.path.join(os.getcwd(), "file", "arquivos", "classes.txt"), file_model=os.path.join(os.getcwd(), "file", "arquivos", "models", "model"))
 VR = voice_recognition()
 
 LANG.load_files() #carregar os arquivos
@@ -28,12 +30,13 @@ def detectar(classe):
     """
     detected_objects = [] #lista dos objetos que ele controu
 
-    detected_objects = CV.prediction(1)
+    detected_objects = CV.prediction(0)
 
     #para cada objeto detectad
     for object in detected_objects:
         #se o objeto for da classe que estamos procurando
         if object["classe"] == classe: 
+            print("92387687429462342r4927342764")
             return True #retornar verdadeiro, pois encontrou a classe
     
     return False #retornar falso, pois não encontrou a classe
@@ -41,24 +44,28 @@ def detectar(classe):
 def objeto_detectado(classe):
     detected_objects = [] #lista dos objetos que ele controu
 
-    detected_objects = CV.prediction(1)
+    while True:
+        detected_objects = CV.prediction(0)
 
-    #para cada objeto detectad
-    for object in detected_objects:
-        #se o objeto for da classe que estamos procurando
-        if object["classe"] == classe: 
-            #é considerado centro se ele stiver entre 299 e 339
-            
-            if (object["xc"] >= 299) or (object["xc"] <= 339):
-                return 2
-            
-            if (object["xc"] > 339):
-                return 3
-            
-            if (object["xc"] < 299):
-                return 1
-            
-            return -1
+        #para cada objeto detectad
+        for object in detected_objects:
+            #se o objeto for da classe que estamos procurando
+            if object["classe"] == classe: 
+                #é considerado centro se ele stiver en
+                # tre 299 e 339
+
+                print(f"Ta aqui cacete asdkjavsdkoajhvdad: {object['xc']}")
+                
+                if (object["xc"] >= 299) and (object["xc"] <= 339):
+                    return 2
+                
+                if (object["xc"] > 339):
+                    return 3
+                
+                if (object["xc"] < 299):
+                    return 1
+                
+                return -1
 
 def classe_to_index(classe):
     if classe == "pessoa": return 0
@@ -82,11 +89,7 @@ def classe_to_index(classe):
 def main():
     frase = VR.vr() #pegar a frase por meio do reconhecimento de voz 
 
-    print(frase)
-
     classe = LANG.get_classe(frase) #predizir a classe
-
-    print(classe)
 
     classe = classe_to_index(classe)
 
@@ -97,7 +100,7 @@ def main():
         flag = detectar(classe)
 
         if flag:
-            objeto_detectado(classe)
+            print(f"alskiudfygasuikdfvgsaukdafd9qfvwiertqwueiwqdeq8eity7cqdeqweiygkqiuefwqiyektgqwdeqwtiekgqwewq: {objeto_detectado(classe)}")
             break #significa que achou o objeto
 
 
@@ -110,7 +113,14 @@ def main():
             flag = detectar(classe)
 
             if flag:
-                objeto_detectado(classe)
+                print(f"alskiudfygasuikdfvgsaukdafd9qfvwiertqwueiwqdeq8eity7cqdeqweiygkqiuefwqiyektgqwdeqwtiekgqwewq: {objeto_detectado(classe)}")
                 break
+    
+    while True:
+        flag = detectar(classe)
+
+        if flag:
+            print(f"alskiudfygasuikdfvgsaukdafd9qfvwiertqwueiwqdeq8eity7cqdeqweiygkqiuefwqiyektgqwdeqwtiekgqwewq: {objeto_detectado(classe)}")
+
 
 main()
