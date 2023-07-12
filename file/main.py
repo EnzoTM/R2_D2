@@ -2,6 +2,8 @@ from classes.language import language
 from classes.computer_vision import vision
 from classes.voice_recognition import voice_recognition
 
+import cv2
+
 import time
 
 import os
@@ -14,6 +16,8 @@ LANG.load_files() #carregar os arquivos
 
 tempo_rotacao_360 = 20
 
+camera_index = 1
+
 """
 2 --> frente
 1 --> esquerda
@@ -24,48 +28,95 @@ lagura da tela: 638
 considerado centro: [299, 339]
 """
 
-def detectar(classe):
-    """
-    retorna verdadeiro se encintar o objeto e falso se não encontrar
-    """
-    detected_objects = [] #lista dos objetos que ele controu
+def objetos_detectados(results):
+    predicted_objects = [] #list of predicted objects
 
-    detected_objects = CV.prediction(0)
+    for result in results:
+            #format to extract only relevant information from the result
+            box_coordenates = result.boxes.data.tolist()[0]
 
+            x1 = box_coordenates[0]
+            x2 = box_coordenates[2]
+            y1 = box_coordenates[1]
+            y2 = box_coordenates[3]
+
+            object_dict = { #create dictionary with information about this object
+                'x1': x1,
+                'x2': x2,
+                'y1': y1,
+                'y2': y2,
+                'acuracia': box_coordenates[4],
+                'xc': int((x1 + x2) / 2),
+                'yc': (y1 + y2) / 2,
+                'classe': box_coordenates[5]
+            }
+
+            predicted_objects.append(object_dict) #add the dictionary to the list of detected objects in the image]
+    
+    return predicted_objects
+
+def classe_encontrada(predicted_objects, classe):
     #para cada objeto detectad
-    for object in detected_objects:
+    for object in predicted_objects:
         #se o objeto for da classe que estamos procurando
         if object["classe"] == classe: 
-            print("92387687429462342r4927342764")
-            return True #retornar verdadeiro, pois encontrou a classe
+            return True, object #retornar verdadeiro, pois encontrou a classe
+
+    return False, None
+
+
+def try_to_find_class(tempo, classe):
+    tempo_inicial = time.time()
+
+    camera = cv2.VideoCapture(camera_index)
     
-    return False #retornar falso, pois não encontrou a classe
+    while (time.time() - tempo_inicial) < tempo:
+        _, frame = camera.read()
+
+        results = CV.model.predict(frame, show=True, conf=0.6)[0]
+
+        predicted_objects = objetos_detectados(results)
+
+        encontrada, object = classe_encontrada(predicted_objects, classe)
+
+        if encontrada:
+            return tempo
+    
+    return False
+        
+def direction(object):
+    #é considerado centro se ele stiver entre 299 e 339
+    
+    if (object["xc"] >= 299) and (object["xc"] <= 339):
+        return 2
+    
+    if (object["xc"] > 339):
+        return 3
+    
+    if (object["xc"] < 299):
+        return 1
+    
+    return -1
 
 def objeto_detectado(classe):
-    detected_objects = [] #lista dos objetos que ele controu
+    camera = cv2.VideoCapture(camera_index)
 
     while True:
-        detected_objects = CV.prediction(0)
+        _, frame = camera.read()
 
-        #para cada objeto detectad
-        for object in detected_objects:
-            #se o objeto for da classe que estamos procurando
-            if object["classe"] == classe: 
-                #é considerado centro se ele stiver en
-                # tre 299 e 339
+        results = CV.model.predict(frame, show=True, conf=0.6)[0]
 
-                print(f"Ta aqui cacete asdkjavsdkoajhvdad: {object['xc']}")
-                
-                if (object["xc"] >= 299) and (object["xc"] <= 339):
-                    return 2
-                
-                if (object["xc"] > 339):
-                    return 3
-                
-                if (object["xc"] < 299):
-                    return 1
-                
-                return -1
+        predicted_objects = objetos_detectados(results)
+
+        encontrada, object = classe_encontrada(predicted_objects, classe) 
+
+        if not(encontrada):
+            continue
+        else:
+            acao = direction(object)
+
+            print(f"Mandar a acao {acao}")
+
 
 def classe_to_index(classe):
     if classe == "pessoa": return 0
@@ -93,34 +144,18 @@ def main():
 
     classe = classe_to_index(classe)
 
-    tempo_inicial = time.time() #tempo inicial
+    if try_to_find_class(5, classe):
+        objeto_detectado(classe)
+    else:
+        print("dar o comando para comecar a virar para a direita")
 
-    #ele vai tentar encontrar o objeto em um tempo de 5 segundos
-    while (time.time() - tempo_inicial) < 5:
-        flag = detectar(classe)
+        flag = try_to_find_class(tempo_rotacao_360, classe)
 
-        if flag:
-            print(f"alskiudfygasuikdfvgsaukdafd9qfvwiertqwueiwqdeq8eity7cqdeqweiygkqiuefwqiyektgqwdeqwtiekgqwewq: {objeto_detectado(classe)}")
-            break #significa que achou o objeto
-
-
-    #se apos 5 segundos flag for falso signifca que ele nao achou o objeto
-    if not(flag):
-        tempo_inicial = time.time()
-
-        #fazer o robo girar 360 graus para ver se ele acha o objetos nos seus arredores
-        while (time.time() - tempo_inicial) < tempo_rotacao_360:
-            flag = detectar(classe)
-
-            if flag:
-                print(f"alskiudfygasuikdfvgsaukdafd9qfvwiertqwueiwqdeq8eity7cqdeqweiygkqiuefwqiyektgqwdeqwtiekgqwewq: {objeto_detectado(classe)}")
-                break
-    
-    while True:
-        flag = detectar(classe)
+        print("dar o comando para parar de girar")
 
         if flag:
-            print(f"alskiudfygasuikdfvgsaukdafd9qfvwiertqwueiwqdeq8eity7cqdeqweiygkqiuefwqiyektgqwdeqwtiekgqwewq: {objeto_detectado(classe)}")
-
+            objeto_detectado(classe)
+        else:
+            print("Objeto nao encontrado ;-;")
 
 main()

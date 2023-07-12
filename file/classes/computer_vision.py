@@ -1,8 +1,5 @@
 from ultralytics import YOLO
 import os
-import cv2
-import logging
-
 
 class vision:
     #por padrao, training vai ser falso
@@ -37,47 +34,3 @@ class vision:
         model = YOLO(self.model_type + ".yaml").load(self.model_type + ".pt") #transferir os pesos do modelo já treinado para o modelo que vamos terinar
 
         model.train(data=self.data_set_configuration_path, epochs=self.epochs) #treinar o modelo
-
-    def prediction(self, camera_input):
-        camera = cv2.VideoCapture(camera_input)
-        #self.model.info()
-        #camera = cv2.VideoCapture(camera_input) #receber o que a camera está gravando
-        _, frame = camera.read() #pegar o frame atual da camera
-
-        predicted_objects = [] #lista de objetos predizidos
-
-        results = self.model.predict(frame, show=True, conf=0.6)[0]
-
-        logging.getLogger('yolov8').setLevel(logging.CRITICAL)
-
-        for result in results:
-            #formatar para extrair somente as informações relevantes do resultado
-            box_coordenates = result.boxes.data.tolist()[0]
-
-            x1 = box_coordenates[0]
-            x2 = box_coordenates[2]
-            y1 = box_coordenates[1]
-            y2 = box_coordenates[3]
-
-            object_dict = { #criar o dicionário com as informações referente a este objeto
-                'x1': x1,
-                'x2': x2,
-                'y1': y1,
-                'y2': y2,
-                'acuracia': box_coordenates[4],
-                'xc': int((x1 + x2) / 2),
-                'yc': (y1 + y2) / 2,
-                'classe': box_coordenates[5]
-            }
-
-            predicted_objects.append(object_dict) #adicionar o dicionario a lista de objetos detectados no imagen
-        
-    
-        return predicted_objects
-
-    def directions(self, centro):
-        #lagura = 638
-
-        if (centro >= 299) and (centro <= 339):
-            print("FRENTE")
-        return
