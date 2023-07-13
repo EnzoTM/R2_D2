@@ -62,8 +62,6 @@ class language:
                 for word in word_list:
                     self.words.append(word)
 
-                print(padrao["index"])
-
                 #adicionar a lista de palavras + a classe na lista de instanciaos
                 self.instancias.append((word_list, padrao["classe"]))
 
@@ -264,7 +262,7 @@ class language:
         words_from_the_sentece = self.sentece_to_words(sentece) 
         #predicar o resultado baseado nas palavras
 
-        print(f"classe: {len(self.classes_P)}")
+        print(f"n classes: {len(self.classes_P)}")
 
         result = self.model.predict(np.array([words_from_the_sentece]))[0]
 
@@ -279,6 +277,5 @@ class language:
         result.sort(key=lambda x: x[1], reverse=True) 
 
         
-
         #return {"classe": self.classes_P[result[0][0]], "probabilidade": str(result[0][1])}
         return self.classes_P[result[0][0]]

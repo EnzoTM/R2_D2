@@ -1,10 +1,25 @@
-from classes.language import language
-import os
+from classes.computer_vision import vision
 
-ai = language(training=True, arquivo=os.path.join(os.getcwd(), "file", "arquivos", "padrao.json"), file_words=os.path.join(os.getcwd(), "file", "arquivos", "words.txt"), file_classes=os.path.join(os.getcwd(), "file", "arquivos", "classes.txt"), file_model=os.path.join(os.getcwd(), "file", "arquivos", "models", "model"))
+import time
 
-ai.load()
+import cv2
 
-input_, output = ai.load_training()
+cv = vision(pt=True, model_type="yolov8n")
 
-ai.create_model(input_, output)
+
+camera = cv2.VideoCapture(1)
+
+
+def teste():
+    camera = cv2.VideoCapture(1)
+    
+    _, frame = camera.read()
+
+    results = cv.model.predict(frame, show=True, conf=0.6)[0]
+
+while True:
+    _, frame = camera.read()
+
+    results = cv.model.predict(frame, show=True, conf=0.6)[0]
+
+    teste()

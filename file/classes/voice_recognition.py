@@ -11,7 +11,7 @@ class voice_recognition:
         self.audio = None
         
 
-    def vr(self):
+    def vr(self, voice_index):
         """
         retorna oq a pessoa disse
         """
@@ -19,7 +19,7 @@ class voice_recognition:
         
         try:
             #devide_index=1 é o microfone que está sendo usado para receber o áudio
-            with sr.Microphone(device_index=23) as source:
+            with sr.Microphone(device_index=voice_index) as source:
                 print("Diga algo:")
                 #para ajustar o áudio com o ambinete, coloquei duração de 0.2, pois foi a melhor q eu achei
                 microfone.adjust_for_ambient_noise(source, duration=0.2)
@@ -35,8 +35,4 @@ class voice_recognition:
 
         except sr.UnknownValueError:
             #retornar False, pois deu algum erro
-            self.vr()
-
-t = voice_recognition()
-t.vr()
-print(t.audio)
+            self.vr(voice_index)

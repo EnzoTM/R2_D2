@@ -85,7 +85,7 @@
         },
 
         {
-            "classe": "maçã",
+            "classe": "maca",
             "input": ["dei ao meu professor uma maca", "essa maca esta muito azeda", "hoje a sobremesa eh maca", "uma maca caiu na minha cabeca", 
             "eu gosto de maca verde", "plantei um pe de maca", "maca eh a fruta mais famosa do mundo"],
             "index": 47
@@ -113,7 +113,7 @@
         },
 
         {
-            "classe": "planta em vaso",
+            "classe": "planta-em-vaso",
             "input": ["que linda planta em vaso", "gosto de planta em vaso", "planta em vaso eh muito bonita", "tenho uma planta em vaso", "sem querer quebrei a planta em vaso",
         "estou vendo uma planta em vaso", "quero comprar uma planta em vaso", "minha tia ama planta em vaso"],
             "index": 58
@@ -127,7 +127,7 @@
         },
 
         {
-            "classe": "mesa de jantar",
+            "classe": "mesa-de-jantar",
             "input": ["a mesa de jantar era muito grande", "meu sonho eh uma mesa de jantar de vidro", "adoro minha mesa de jantar", "va ate a mesa de jantar", 
             "a janta sera servida na mesa de jantar", "eu nunca vi uma mesa de jantar tao linda"],
             "index": 60
@@ -155,7 +155,7 @@
         },
 
         {
-            "classe": "controle remoto",
+            "classe": "controle-remoto",
             "input": ["o controle remoto esta em cima da bancada", "talvez seja esse o controle remoto que voce procura", "o controle remoto tem muitos botoes", "me passa o controle remoto", 
         "o controle remoto quebrou", "esse controle remoto parou de funcionar faz tempo", "ele funciona por controle remoto"],
             "index": 65
@@ -211,14 +211,14 @@
         },
 
         {
-            "classe": "secador de cabelo",
+            "classe": "secador-de-cabelo",
             "input": ["o meu secador de cabelo queimou", "meu cabelo estava molhado, sequei com o secador de cabelo", "o secador de cabelo caiu no chao",
         "o meu secador de cabelo esta esquentando muito", "esse secador de cabelo eh branco", "esse secador de cabelo eh muito bom"],
             "index": 78
         },
 
         {
-            "classe": "escova de dentes",
+            "classe": "escova-de-dentes",
             "input": ["acordei e usei minha escova de dentes para escovar os dentes", "a minha escova de dentes eh rosa", "a minha escova de dentes caiu no chao",
         "preciso comprar uma nova escova de dentes", "eu comprei uma escova de dentes nova", "esqueci minha escova de dentes em casa", "a escova que comprei eh ruim"],
             "index": 79
