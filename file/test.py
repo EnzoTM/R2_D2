@@ -1,25 +1,19 @@
-from classes.computer_vision import vision
+import requests
 
 import time
 
-import cv2
+ip = "172.20.10.11"
 
-cv = vision(pt=True, model_type="yolov8n")
-
-
-camera = cv2.VideoCapture(1)
-
-
-def teste():
-    camera = cv2.VideoCapture(1)
+def send_request(string):
+    url = f'http://{ip}/{string}'
     
-    _, frame = camera.read()
+    response = requests.get(url)
 
-    results = cv.model.predict(frame, show=True, conf=0.6)[0]
+    print(f"Mandar a acao {string}")
+
+    print(response)
 
 while True:
-    _, frame = camera.read()
+    send_request("frente")
 
-    results = cv.model.predict(frame, show=True, conf=0.6)[0]
-
-    teste()
+    time.sleep(1)

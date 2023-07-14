@@ -16,17 +16,15 @@ VR = voice_recognition()
 
 LANG.load_files() #carregar os arquivos
 
-tempo_rotacao_360 = 20
-
 camera_index = 1
 
-ip = "172.20.10.8"
+ip = "172.20.10.11"
 
 voice_index = 1
 
 tempo_nova_acao = 3
 
-numero_rotacoes = 10
+numero_rotacoes = 13
 
 camera = cv2.VideoCapture(camera_index)
 
@@ -43,6 +41,8 @@ def send_request(string):
     print(f"Mandar a acao {string}")
 
     print(response)
+
+    time.sleep(0.2)
 
 def objetos_detectados(results):
     predicted_objects = [] #list of predicted objects
@@ -83,8 +83,6 @@ def classe_encontrada(predicted_objects, classe):
 
 def try_to_find_class(tempo, classe):
     tempo_inicial = time.time()
-
-    #camera = cv2.VideoCapture(camera_index)
     
     while (time.time() - tempo_inicial) < tempo:
         _, frame = camera.read()
@@ -115,7 +113,6 @@ def direction(object):
     return "para"
 
 def nova_acao(classe):
-    #camera = cv2.VideoCapture(camera_index)
 
     tempo_inicial = time.time()
 
@@ -193,18 +190,25 @@ def classe_to_index(classe):
 
     if classe == "garrafa": return 39
 
+
 def main():
     frase = VR.vr(voice_index) #pegar a frase por meio do reconhecimento de voz 
+
+    frase = "vá até a pessoa"
 
     print(f"Frase dita: {frase}")
     
     classe = LANG.get_classe(frase) #predizir a classe
     
+    classe = "pessoa"
+
     print(f"Classe predizida: {classe}")
 
     classe = classe_to_index(classe)
 
-    encontrada = try_to_find_class(5, classe) #tenta encontrar a classe durante 5 segundos
+    #try_to_find_class(5, "nenhuma")
+
+    encontrada = try_to_find_class(7, classe) #tenta encontrar a classe durante 5 segundos
 
     if encontrada: 
         objeto_detectado(classe) #se ecnontrar chama a função de objeto detectado
@@ -216,9 +220,14 @@ def main():
 
             time.sleep(1)
 
-            encontrada = try_to_find_class(3)
+            encontrada = try_to_find_class(3, classe)
 
             if encontrada:
+                #delay_apos_encontro(5)
+
+                time.sleep(5)
+
+
                 objeto_detectado(classe)
             else:
                 rotacoes += 1
