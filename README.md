@@ -23,3 +23,12 @@
 <ul>
   <li>Simões: https://gitlab.com/simoesusp</li>
 </ul>
+
+<h2>Fotos do Robô</h2>
+<div align="center">
+    <img src="https://github.com/EnzoTM/R2_D2/blob/main/Imagens/IMG-3391.jpg?raw=true">
+    <img src="https://github.com/EnzoTM/R2_D2/blob/main/Imagens/IMG-3394.jpg?raw=true">
+    <img src="https://github.com/EnzoTM/R2_D2/blob/main/Imagens/IMG-3398.jpg?raw=true">
+    <img src="https://github.com/EnzoTM/R2_D2/blob/main/Imagens/IMG-3393.jpg?raw=true">
+</div>
+
