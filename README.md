@@ -1,5 +1,25 @@
-# R2_D2
+# Eletronica para computação - USP
+## Projeto 2 - R2_D2
 
 <div align="center">
     <img src="https://i.pinimg.com/originals/b3/cc/76/b3cc768e967da8fc9f2dd87fa315f100.gif">
 </div>
+
+<br>
+
+<b>Integrantes do grupo:</b>
+<ul>
+  <li>Caue Paiva: https://github.com/caue-paiva</li>
+  <li>Enzo Tonon Morente: https://github.com/EnzoTM</li>
+  <li>João Pedro Godoy: https://github.com/joaopgodoy</li>
+  <li>Letícia Neves: https://github.com/LeticiaBN</li>
+  <li>Pedro Louro: https://github.com/Peloro</li>
+</ul>
+
+<br>
+
+<b>Professor:</b>
+<br>
+<ul>
+  <li>Simões: https://gitlab.com/simoesusp</li>
+</ul>
