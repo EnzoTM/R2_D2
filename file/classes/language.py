@@ -3,7 +3,6 @@ import numpy as np
 import os
 
 import nltk
-from nltk.stem import WordNetLemmatizer #reduz palavras diferentes para uma só
 
 import tensorflow as tf
 from keras.models import Sequential
@@ -38,14 +37,8 @@ class language:
         self.words_P = []
         self.classes_P = []
 
-        #carregar o modelo se n estiver sendo treinado
-        if not self.training:
-            self.model = load_model(self.file_model)  
-
         #ler o arquivo json programa/padroes.json
         self.padroes = json.loads(open(self.arquivo).read())
-
-        self.lemmatizer = WordNetLemmatizer()
     
     def load(self):
         """
@@ -62,17 +55,12 @@ class language:
                 for word in word_list:
                     self.words.append(word)
 
-                #adicionar a lista de palavras + a classe na lista de instanciaos
+                #adicionar a lista de palavras + a classe na lista de instancias
                 self.instancias.append((word_list, padrao["classe"]))
 
                 #se esta categoria ainda nao foi adicionada em calsses, adiciona-la
                 if padrao["classe"] not in self.classes:
                     self.classes.append(padrao["classe"])
-
-        '''
-        #lemmatizar as palavras
-        for i in range(0, len(word_list)):
-            word_list[i] = self.lemmatizer.lemmatize(word_list[i])'''
         
         #ver todas as palavras que teremos de remover, e remove-las
         words_to_remove = []
@@ -97,11 +85,15 @@ class language:
         with open(self.file_words, "w") as f:
             for word in self.words:
                 f.write(word + " ")
+            
+            f.close() #fechar o arquivo
 
         #salvar as classes em um arquivo
         with open(self.file_classes, "w") as f:
             for classe in self.classes:
                 f.write(classe + " ")
+            
+            f.close() #fechar o arquivo
     
     #sessão de treinamento da ia
 
@@ -143,8 +135,6 @@ class language:
 
     def create_model(self, inputs, outputs):
         #cirar o medelo 
-
-        print(f"Input ta assim: {len(inputs[0])}")
 
         model = Sequential(
             [
@@ -200,16 +190,20 @@ class language:
 
         #ler dos arquivos para as listas
         with open(self.file_words, "r") as f:
-            words = f.read()
+            words = f.read() #le todo o arquivo
 
-            self.words_P = words.split()    
+            self.words_P = words.split() #cada palavra está separada por espaços, por isso chamamos a função split para transformar tudo em uma lista
+
+            f.close() #fechar o arquivo 
         
         with open(self.file_classes, "r") as f:
-            classes = f.read()
+            classes = f.read() #le todo o arquivo
 
-            self.classes_P = classes.split()     
+            self.classes_P = classes.split() #cada classe está separada por espaços, por isso chamamos a função split para transformar tudo em uma lista     
+
+            f.close() #fechar o arquivo
         
-        self.model = load_model(self.file_model)  
+        self.model = load_model(self.file_model) #carregar o modelo
 
 
     def filter_sentence(self, sentence):
@@ -250,8 +244,6 @@ class language:
                 if word == w:
                     binary_words[i] = 1
 
-        print(binary_words)
-
         return np.array(binary_words) 
     
 
@@ -262,11 +254,7 @@ class language:
         words_from_the_sentece = self.sentece_to_words(sentece) 
         #predicar o resultado baseado nas palavras
 
-        print(f"n classes: {len(self.classes_P)}")
-
         result = self.model.predict(np.array([words_from_the_sentece]))[0]
-
-        print(result)
 
         margem_de_erro = 0.25 
 

@@ -1,10 +1,8 @@
 import speech_recognition as sr
 
-
 #é o código para saber os microfones disponíveis
 """for index, name in enumerate(sr.Microphone.list_microphone_names()):
     print("Microphone with name \"{1}\" found for `Microphone(device_index={0})`".format(index, name))"""
-
 
 class voice_recognition:
     def __init__(self) -> None:
