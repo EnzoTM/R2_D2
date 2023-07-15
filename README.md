@@ -24,12 +24,23 @@
   <li>Simões: https://gitlab.com/simoesusp</li>
 </ul>
 
+</br>
+
 <h2>Fotos do Robô</h2>
 <div align="center">
     <img src="https://github.com/EnzoTM/R2_D2/blob/main/Imagens/IMG-3391.jpg?raw=true">
     <img src="https://github.com/EnzoTM/R2_D2/blob/main/Imagens/IMG-3394.jpg?raw=true">
     <img src="https://github.com/EnzoTM/R2_D2/blob/main/Imagens/IMG-3393.jpg?raw=true">
 </div>
+
+</br>
+
+<h2>Circuito do Robô</h2>
+<div align="center">
+    <img src="https://raw.githubusercontent.com/EnzoTM/R2_D2/main/Imagens/diagrama.png">
+</div>
+
+</br>
 
 <h3>Vídeo:</h3>
 <ul>
