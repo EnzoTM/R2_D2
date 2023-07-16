@@ -28,8 +28,8 @@ bool parada_SEMPRE = false; //para o ESP32 completamenta, parada por request HTT
 // variavel da velocidade do carro
 int drivePower = 500;
 
-const char* ssid = "iPhone (8)"; //"iPhone de João Pedro (2)"
-const char* password = "naotenhoideia";          //"jp123456"iPhone (8) 
+const char* ssid = ""; 
+const char* password = "";   
 
 
 //determina a velocidade com que o carro faz curvas 
