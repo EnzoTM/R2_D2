@@ -28,8 +28,8 @@ bool parada_SEMPRE = false; //para o ESP32 completamenta, parada por request HTT
 // variavel da velocidade do carro
 int drivePower = 500;
 
-const char* ssid = ""; 
-const char* password = "";   
+const char* ssid = "";  //nome da rede wifi a ser conectada
+const char* password = "";   //senha da rede wifi a ser conectada
 
 
 //determina a velocidade com que o carro faz curvas 
