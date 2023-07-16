@@ -26,15 +26,16 @@ bool parada_emerg = false; //variaveis de parada, emerg = parada temporaria pelo
 bool parada_SEMPRE = false; //para o ESP32 completamenta, parada por request HTTP
 
 // variavel da velocidade do carro
-int drivePower = 500;
+// Pode ser ajustado entre ~350 e 600 , depende da bateria e do motor
+int drivePower = 420;
 
-const char* ssid = "";  //nome da rede wifi a ser conectada
-const char* password = "";   //senha da rede wifi a ser conectada
+const char* ssid = ""; //nome da rede wifi a ser conectada
+const char* password = ""; //senha da rede wifi a ser conectada
 
 
 //determina a velocidade com que o carro faz curvas 
-// Pode ser ajustado entre 0 e 1023 (o carro provavelmente não vai fazer curvas se o valor for muito baixo), 
-int steeringPower = 500;
+// Pode ser ajustado entre ~350 e 600 , , depende da bateria e do motor
+int steeringPower = 420;
 
 
 
@@ -58,8 +59,8 @@ duration = pulseIn(echo, HIGH);
 distance= duration*0.034/2; //converte o tempo/duração do echo na distancia
 
 
-if ( distance < 15){
-digitalWrite(LED, HIGH); // se a distancia for menor que 15cm ele acende o led azul e para, retornando 1
+if ( distance < 30){ // é  possivel ajustar a distancia em CM de acionamento do sensor 
+digitalWrite(LED, HIGH); // se a distancia for menor que 30cm ele acende o led azul e para, retornando 1
 parada_emerg = true;
 return 1; } else {
 digitalWrite(LED, LOW);
@@ -170,11 +171,11 @@ server.on("/frente", [](){
 
 
 
-  server.on("/esque", [](){
-    Serial.println("dir"); //funções de virar para direita e esquerda rodam apenas por 300ms, assim o robo pode virar pouco e ajustar sua posição
+  server.on("/esqueSHORT", [](){
+    Serial.println("dir"); //funções de virar para direita e esquerda  SHORT rodam apenas por 300ms, assim o robo pode virar pouco e ajustar sua posição quando ver alguem
   if(!parada_emerg){
     unsigned long startTimeES = millis();
-    while (millis() - startTimeES < 300) { 
+    while (millis() - startTimeES < 130) { 
 
     ledcWrite(motorA_pwmChannel, steeringPower);
     digitalWrite(in1, HIGH);
@@ -192,16 +193,39 @@ server.on("/frente", [](){
   
   });
 
- 
+    server.on("/esqueLONG", [](){ //funções de virar direita e esquerda LONG rodam por 600ms, quando a visão não detecta ngm, assim ele vira mais rápido na sua busca por pessoas
+    Serial.println("dir"); //
+  if(!parada_emerg){
+    unsigned long startTimeES = millis();
+    while (millis() - startTimeES < 390) { 
+
+    ledcWrite(motorA_pwmChannel, steeringPower);
+    digitalWrite(in1, HIGH);
+    digitalWrite(in2, LOW);
+    ledcWrite(motorb_pwmChannel, drivePower);
+     digitalWrite(in3, LOW);
+     digitalWrite(in4, LOW);   
+    
+      } 
+       ledcWrite(motorA_pwmChannel, 0);
+       ledcWrite(motorb_pwmChannel, 0);
+      server.send(200, "text/plain", "direita");
+      
+  }
+  
+  });
+
 
  
 
-  server.on("/dir", [](){   
+ 
+
+  server.on("/dirSHORT", [](){   
     Serial.println("esque");
     
      if(!parada_emerg){
       unsigned long startTimeDI = millis();
-    while (millis() - startTimeDI < 300){
+    while (millis() - startTimeDI < 130){
     ledcWrite(motorA_pwmChannel, steeringPower);
      digitalWrite(in1, LOW);
      digitalWrite(in2, LOW);
@@ -213,6 +237,28 @@ server.on("/frente", [](){
       ledcWrite(motorA_pwmChannel, 0);
     ledcWrite(motorb_pwmChannel, 0);
    server.send(200, "text/plain", "esquerda");
+     
+    }
+  });
+
+
+  server.on("/dirLONG", [](){   
+    Serial.println("esque");
+    
+     if(!parada_emerg){
+      unsigned long startTimeDI = millis();
+    while (millis() - startTimeDI < 390){ // Para o robo dar uma volta completa são cerca de 4800 ms de girar continuamente, mas isso pode mudar devido ao peso
+    ledcWrite(motorA_pwmChannel, steeringPower);
+     digitalWrite(in1, LOW);
+     digitalWrite(in2, LOW);
+    ledcWrite(motorb_pwmChannel, drivePower);
+    digitalWrite(in3, HIGH);
+    digitalWrite(in4, LOW);   
+   
+     }
+      ledcWrite(motorA_pwmChannel, 0);
+      ledcWrite(motorb_pwmChannel, 0);
+      server.send(200, "text/plain", "esquerda");
      
     }
   });
@@ -247,10 +293,6 @@ void loop() {  //funções a serem continuamente rodadas
     esp_deep_sleep_start(); 
 
   } 
-
- 
-  delay(15); //esse delay é usado para que as requests não ocorram muito rapidamente e assim drenem a bateria do robo, deixar entre 10-15 ms parece ser a melhor opção 
-}
 
  
   delay(15); //esse delay é usado para que as requests não ocorram muito rapidamente e assim drenem a bateria do robo, deixar entre 10-15 ms parece ser a melhor opção 
