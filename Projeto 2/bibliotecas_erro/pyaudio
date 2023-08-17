@@ -1,0 +1,11 @@
+Erro: 
+src/pyaudio/device_api.c:9:10: fatal error: portaudio.h: No such file or directory
+          9 | #include "portaudio.h"
+            |          ^~~~~~~~~~~~~
+      compilation terminated.
+
+Solution:
+sudo apt-get update
+sudo apt-get install portaudio19-dev
+
+pip install pyaudio
